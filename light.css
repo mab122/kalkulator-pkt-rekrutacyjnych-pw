@@ -1,0 +1,7 @@
+html {
+	--element-background: #ddd;
+	--element-selected-background: #bbb;
+	--background: white;
+	--element-color: black;
+	--color: black;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kalkulator punktów rekrutacyjnych na Politechnikę Warszawską</title>
+		<!-- <link rel="stylesheet" href="light.css"> -->
+		<link rel="stylesheet" href="dark.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+		<h1>Kalkulator punktów rekrutacyjnych na Politechnikę Warszawską</h1>
+		<h2>Według <a href="https://www.pw.edu.pl/Kandydaci/Studia-stacjonarne-I-stopnia/Przeliczanie-punktow-kwalifikacyjnych-konkursowych">pw.edu.pl</a> ~ dostęp z 31.01.2018 </h2>
+		<!-- Na Twój wynik rekrutacyjny składa się liczba punktów z matematyki, języka obcego oraz dodatkowego przedmiotu zdawanego na maturze.
+		Najpierw poszczególne wyniki z matury pomnóż przez 1 (w przypadku poziomu rozszerzonego) lub 0,5 (poziom podstawowy egzaminu).
+		Łącznie masz do zdobycia 225 punktów.
+		Wzór przeliczania punktów
+		PK (punkty kwalifikacyjne) = Pmat x wmat + Pwyb x wwyb + Pjo x wjo
+
+		3. Osoby, które zdały egzamin maturalny w klasach dwujęzycznych lub język obcy na poziomie dwujęzycznym
+		Punkty z języka obcego przyjmuje się jako 1,25 oceny z części pisemnej egzaminu maturalnego z języka obcego, ale nie więcej niż 100 punktów. -->
+    <form class="form">
+      <label for="math">Matematyka:</label> <input type="number" min="0" max="100" id="math" >
+			<label for="math-advanced">Poziom:</label> <select id="math-advanced">
+				<option selected value="0.5">Podstawowy</option>
+				<option value="1">Rozszerzony</option>
+			</select>
+      <label for="math-weight">Waga:</label> <input type="number" step="0.01" min="0.0" max="1.0" id="math-weight" >
+			<hr>
+      <label for="chosen">Wybrany przedmiot:</label> <input type="number" min="0" max="100" id="chosen" >
+			<label for="chosen-advanced">Poziom:</label> <select id="chosen-advanced" >
+			<option selected value="0.5">Podstawowy</option>
+			<option value="1">Rozszerzony</option>
+		</select>
+      <label for="chosen-weight">Waga:</label> <input type="number" step="0.01" min="0" max="1" id="chosen-weight" >
+			<hr>
+      <label for="foreign">Język obcy:</label> <input type="number" min="0" max="100" id="foreign" >
+			<label for="foreign-advanced">Poziom:</label> <select required id="foreign-advanced">
+				<option value="1.25">Dwujęzyczny</option>
+				<option value="1.0">Rozszerzony</option>
+				<option selected value="0.5">Podstawowy</option>
+			</select>
+      <label for="foreign-weight">Waga:</label> <input type="number" step="0.01" min="0" max="1" id="foreign-weight" >
+			<hr>
+			<button type="button" id="calculate" name="button">Policz</button>
+      <h1 id="points">0</h1>
+    </form>
+    <script src="snippets.js" charset="utf-8"></script>
+    <script type="text/javascript">
+			function calc() {
+				var foreign = $('input#foreign').value * $('select#foreign-advanced').value * $('input#foreign-weight').value;
+				if ($('select#foreign-advanced').value == 1.25 && foreign > 100) foreign = 100;
+
+				var points = $('input#math').value * $('select#math-advanced').value * $('input#math-weight').value
+				+ $('input#chosen').value * $('select#chosen-advanced').value * $('input#chosen-weight').value
+				+ foreign;
+
+				$('#points').innerHTML = points;
+			}
+
+			$('.form').onchange = function () { calc(); };
+			$('#calculate').onclick = function() { calc(); };
+    </script>
+		<footer><div><a href="https://1cec0ffee.black/"><span class="ice">1CE</span><span class="coffee">C0FFEE</span> <span class="black">.black</span></a></div></footer>
+  </body>
+</html>

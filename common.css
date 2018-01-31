@@ -1,0 +1,85 @@
+html {
+	font-size: 200%;
+	background: var(--background);
+	font-family: 'Roboto', sans-serif;
+	color: var(--color);
+	text-align: center;
+	--width: 20rem;
+}
+
+@media (min-width: 80rem) {
+	html {
+		font-size: 62.5%;
+	}
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	font-size: 3.2rem;
+}
+
+.form {
+	max-width: var(--width);
+	margin: auto;
+	font-size: 2rem;
+}
+
+.form > * {
+	margin: 0.2rem;
+}
+
+.form > input, .form > select, .form > button {
+	display: block;
+	background: var(--element-background);
+	color: var(--element-color);
+	border: none;
+	width: 100%;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	font-size: 2rem;
+}
+
+.form > button {
+	padding: 1rem;
+}
+
+.form > hr {
+	margin: 1rem 0rem;
+}
+
+.form > h1 {
+	margin-top: 3.2rem;
+}
+
+.form > input:hover, .form > select:hover, .form > button:hover, .form > input:focus, .form > select:focus, .form > button:focus {
+	background: var(--element-selected-background);
+}
+
+footer {
+	margin-top: 3.2rem;
+}
+
+footer > div {
+	padding: 1rem;
+	background: rgba(0,0,0,0.7);
+	max-width: var(--width);
+	margin: auto;
+}
+
+footer > div > a {
+	padding: 0.5rem;
+	text-decoration: none;
+	background: rgba(255,255,255,0.9);
+}
+footer > div > a > .ice {
+	color: #71A6D2;
+}
+footer > div > a > .coffee {
+	color: #6F4E37;
+}
+footer > div > a > .black {
+	color: black;
+}
