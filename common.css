@@ -61,25 +61,3 @@ h1 {
 footer {
 	margin-top: 3.2rem;
 }
-
-footer > div {
-	padding: 1rem;
-	background: rgba(0,0,0,0.7);
-	max-width: var(--width);
-	margin: auto;
-}
-
-footer > div > a {
-	padding: 0.5rem;
-	text-decoration: none;
-	background: rgba(255,255,255,0.9);
-}
-footer > div > a > .ice {
-	color: #71A6D2;
-}
-footer > div > a > .coffee {
-	color: #6F4E37;
-}
-footer > div > a > .black {
-	color: black;
-}
